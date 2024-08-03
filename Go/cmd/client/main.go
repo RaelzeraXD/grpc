@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+
 	"github.com/raelzeraxd/grpc/pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -23,5 +24,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(res)
+	fmt.Println(res.Msg)
 }
