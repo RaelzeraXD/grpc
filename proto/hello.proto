@@ -1,17 +1,18 @@
 syntax = "proto3";
 
 option go_package = "./Go/pb";
-//option python_package = "./Python/pb";
 
-message HelloRequest{
-    string name = 1;
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
 }
 
-message HelloResponse{
-    string msg = 1;
-
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
 }
 
-service HelloService{
-    rpc Hello(HelloRequest) returns (HelloResponse) {};
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
 }

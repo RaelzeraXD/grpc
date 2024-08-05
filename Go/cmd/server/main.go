@@ -10,12 +10,12 @@ import (
 )
 
 type Server struct {
-	pb.UnimplementedHelloServiceServer
+	pb.UnimplementedGreeterServer
 }
 
-func (s *Server) Hello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloResponse, error) {	
+func (s *Server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {	
 	
-	res := &pb.HelloResponse{Msg: "Hello, " + in.GetName()}
+	res := &pb.HelloReply{Message: "Hello, " + in.GetName()}
 	
 	return res, nil
 }
@@ -27,7 +27,7 @@ func main() {
 		panic(err)
 	}
 	s  := grpc.NewServer()
-	pb.RegisterHelloServiceServer(s, &Server{})
+	pb.RegisterGreeterServer(s, &Server{})
 	if err := s.Serve(listener); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}

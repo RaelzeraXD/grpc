@@ -15,14 +15,14 @@ func main() {
 		panic(err)
 	}
 
-	client := pb.NewHelloServiceClient(conn)
+	client := pb.NewGreeterClient(conn)
 
 	req := &pb.HelloRequest{
 		Name: "John",
 	}
-	res, err := client.Hello(context.Background(), req)
+	res, err := client.SayHello(context.Background(), req)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(res.Msg)
+	fmt.Println(res.Message)
 }
