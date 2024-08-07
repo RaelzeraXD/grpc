@@ -18,7 +18,7 @@ func main() {
 	client := pb.NewGreeterClient(conn)
 
 	req := &pb.HelloRequest{
-		Name: "John",
+		Name: "vitoria on golang client",
 	}
 	res, err := client.SayHello(context.Background(), req)
 	if err != nil {

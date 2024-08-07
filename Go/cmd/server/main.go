@@ -15,7 +15,7 @@ type Server struct {
 
 func (s *Server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {	
 	
-	res := &pb.HelloReply{Message: "Hello, " + in.GetName()}
+	res := &pb.HelloReply{Message: "Hello from Golang grpc server to " + in.GetName()}
 	
 	return res, nil
 }
